@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'mydatashare.dart';
+import 'mydialog.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,28 +21,48 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return null;
+    return Scaffold(
+      appBar: AppBar(title: Text('Home'),),
+      body: Column(
+        children: <Widget>[
+          RaisedButton(
+            child: Text('DataShare'),
+            color: Colors.lightBlue,
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>InheritedWidgetTestRoute()));
+            }
+          ),
+          RaisedButton(
+            child: Text('ComponentShare'),
+            color: Colors.lightBlue,
+            onPressed: (){}
+          ),
+          RaisedButton(
+            child: Text('ColorAndTheme'),
+            color: Colors.lightBlue,
+            onPressed: (){}
+          ),
+          RaisedButton(
+            child: Text('AsyncUI'),
+            color: Colors.lightBlue,
+            onPressed: (){}
+          ),
+          RaisedButton(
+            child: Text('Diaglog'),
+            color: Colors.lightBlue,
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context)=>myDialog()
+              ));
+            }
+          )
+          ,RaisedButton(
+            child: Text('DataShare'),
+            color: Colors.lightBlue,
+            onPressed: (){}
+          )
+        ],
+      ),
+    );
   } 
-}
-
-class ShareDataWidget extends InheritedWidget {
-  ShareDataWidget({
-    @required this.data,
-    Widget child
-  }) :super(child: child);
-
-  final int data; //需要在子树中共享的数据，保存点击次数
-
-  //定义一个便捷方法，方便子树中的widget获取共享数据  
-  static ShareDataWidget of(BuildContext context) {
-    return context.inheritFromWidgetOfExactType(ShareDataWidget);
-  }
-
-  //该回调决定当data发生变化时，是否通知子树中依赖data的Widget  
-  @override
-  bool updateShouldNotify(ShareDataWidget old) {
-    //如果返回true，则子树中依赖(build函数中有调用)本widget
-    //的子widget的`state.didChangeDependencies`会被调用
-    return old.data != data;
-  }
 }
