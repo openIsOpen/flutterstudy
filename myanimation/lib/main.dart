@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'mystructure.dart';
+import 'myswichanimationfromroute.dart';
+import 'heropageb.dart';
 
 void main() => runApp(MyApp());
 
@@ -33,14 +36,25 @@ class MyHomePage extends StatelessWidget{
           child: Text('CustomRouteTransition'),
           color:Colors.blue,
           onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context){}));
+            Navigator.push(context, CupertinoPageRoute(builder: (context){
+              return SwichAnimationFromRoutePage();
+            }));
           },
         ),
         RaisedButton(
-          child: Text('HeroAnimation'),
+          child: Text('CustomRouteTransition1'),
           color:Colors.blue,
           onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context){}));
+            Navigator.push(context, PageRouteBuilder(
+              transitionDuration: const Duration(seconds: 1),
+              pageBuilder: (BuildContext context,Animation animation,
+              Animation secondAnimation){
+                return FadeTransition(
+                  opacity: animation,
+                  child: SwichAnimationFromRoutePage(),
+                  );
+              }
+            ));
           },
         ),
         RaisedButton(
@@ -62,6 +76,15 @@ class MyHomePage extends StatelessWidget{
           color:Colors.blue,
           onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context){}));
+          },
+        ),
+        RaisedButton(
+          child: Text('HeroAnimation'),
+          color:Colors.blue,
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return HeroPageA();
+            }));
           },
         )
       ],)
