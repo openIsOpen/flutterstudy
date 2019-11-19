@@ -4,6 +4,7 @@ import 'mystructure.dart';
 import 'myswichanimationfromroute.dart';
 import 'heropageb.dart';
 import 'mystaggerainimation.dart';
+import 'myuicomponentswich.dart';
 
 void main() => runApp(MyApp());
 
@@ -71,7 +72,9 @@ class MyHomePage extends StatelessWidget{
           child: Text('SwitchAnimationComponent'),
           color:Colors.blue,
           onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context){}));
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return AnimatedSwicherCounterRoute();
+            }));
           },
         ),
         RaisedButton(
