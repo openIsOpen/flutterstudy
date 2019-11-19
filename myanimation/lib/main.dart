@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'mystructure.dart';
 import 'myswichanimationfromroute.dart';
 import 'heropageb.dart';
+import 'mystaggerainimation.dart';
 
 void main() => runApp(MyApp());
 
@@ -61,7 +62,9 @@ class MyHomePage extends StatelessWidget{
           child: Text('ComplexAnimation'),
           color:Colors.blue,
           onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context){}));
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return StaggerRoute();
+            }));
           },
         ),
         RaisedButton(
