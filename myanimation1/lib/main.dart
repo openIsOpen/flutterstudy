@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'mypageroute.dart';
+import 'mywidgetphysics.dart';
 
 void main() => runApp(MyApp());
 
@@ -40,7 +41,7 @@ class MyHomePage extends StatelessWidget {
               color: Colors.blue,
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return null;
+                  return PhysicsCardDemo();
                 }));
               },
             ),
