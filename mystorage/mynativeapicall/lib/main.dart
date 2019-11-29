@@ -75,7 +75,7 @@ class MyHomePageState extends State<MyHomePage>{
                 print('getExternalStorageDirectories:$dir1');
                 //dir1.forEach((f){print(f);});
                 var dir2 = await _getSdCard();
-                print(dir2);
+                print('dir2:$dir2');
                 //var files =  dir.list();
                 //print(await files.length);
                 //files.forEach((i){print(i);});
