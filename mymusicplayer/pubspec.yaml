@@ -27,6 +27,8 @@ dependencies:
   permission_handler: ^3.3.0
   path:
   audioplayers:
+  sqflite:
+  event_bus:
   #flute_music_player:
 
 dev_dependencies:

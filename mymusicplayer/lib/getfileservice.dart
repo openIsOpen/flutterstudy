@@ -1,3 +1,4 @@
+import 'package:mymusicplayer/databaseservice.dart';
 import 'package:mymusicplayer/musicmodule.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
@@ -5,6 +6,7 @@ import 'package:mymusicplayer/utils.dart';
 import 'package:path/path.dart' as PkgPath;
 
 class GetFilesService {
+  static int musicIndex = 0;
   static Future<List<MusicModule>> getMusics({Function(String) fun}) async {
     List<MusicModule> musics = List<MusicModule>();
     await Utils.getPermission();
@@ -33,7 +35,7 @@ class GetFilesService {
           if (name.toLowerCase().endsWith('.mp3') ||
               name.toLowerCase().endsWith('.wav') ||
               name.toLowerCase().endsWith('.acc')) {
-            musics.add(MusicModule(name: name, path: f.path));
+            musics.add(MusicModule(id:musicIndex++, name: name, path: f.path));
           }
         }
       }
@@ -57,5 +59,11 @@ class GetFilesService {
         }
       });*/
     } catch (e) {}
+  }
+
+  Future< List<MusicModule>> getMusicsFromDb() async {
+    DbHelper db = new DbHelper();
+    await db.init();
+    return await db.getAllMusic();
   }
 }

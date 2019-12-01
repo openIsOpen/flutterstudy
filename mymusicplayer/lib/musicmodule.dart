@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 
 class MusicModule {
   int id;
-  String name;
-  String path;
-  String author;
-  String createDate;
-  String artical;
-  String description;
+  String name = '';
+  String path = '';
+  String author = '';
+  String createDate = '' ;
+  String artical = '';
+  String description = '';
 
   MusicModule(
       {@required this.name,
