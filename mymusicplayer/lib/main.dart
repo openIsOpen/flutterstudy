@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:mymusicplayer/getfileservice.dart';
@@ -147,6 +148,9 @@ class MusicList extends StatelessWidget {
   _playMusic(String path)
   {
     //MusicFinder().play(path);
+    AudioPlayer player = new AudioPlayer();
+    player.play(path,isLocal: true);
+    print(path);
   }
 
 }

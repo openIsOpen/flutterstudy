@@ -26,6 +26,7 @@ dependencies:
   path_provider: ^0.4.1
   permission_handler: ^3.3.0
   path:
+  audioplayers:
   #flute_music_player:
 
 dev_dependencies:
